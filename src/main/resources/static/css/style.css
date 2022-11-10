@@ -1,0 +1,182 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19 sept 2022, 14:27:10
+    Author     : joaqu
+*/
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #000000;
+    color: #ffffff;
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg id='Page-1' fill='none' fill-rule='evenodd'%3E%3Cg id='brick-wall' fill='%23ff0303' fill-opacity='0.4'%3E%3Cpath d='M0 0h42v44H0V0zm1 1h40v20H1V1zM0 23h20v20H0V23zm22 0h20v20H22V23z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-size: 16px;
+    font-family: 'Oswald', sans-serif;
+}
+
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+.container{
+    width: 90%;
+    margin: auto;
+}
+
+.navMain{
+    font-size: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 60px 0px 45px; 
+}
+
+.navBrand{
+    width: 150px;
+}
+
+.navMain ul{
+    display: flex;
+}
+
+.navMain ul li{
+    padding: 20px;
+}
+
+.navMain ul li a:hover{
+    border-bottom: 2px solid #ffffff;
+}
+
+.navMain .navMenu{
+    flex: 1;
+    margin-left: 20px;
+}
+
+hr{
+    margin: 10px 0 20px 0;
+}
+
+.showcase{
+    width: 100%;
+    max-width: 6000px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider{
+    display: flex;
+    height: 650px;
+    width: 400%;
+    margin-left:-100%;
+}
+
+.slider__section{
+    height: 650px;
+    width: 100%;
+}
+
+.slider__img{
+    display: block;
+    height: 650px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.slider__btn{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.7);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    font-weight: bold;
+    font-family: monospace;
+    text-align: center;
+    cursor: pointer;
+    color: #000000;
+}
+
+.slider__btn:hover{
+    background: #ffffff;
+}
+
+.slider__btnRight{
+    right: 0px;
+}
+
+.slider__btnLeft{
+    left: 0px;
+}
+
+.footerContainer{
+    width: 100%;
+    background-color: #1C1C1C;
+}
+
+.footerContainer .grupo1{
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:50px;
+    padding: 30px 0px;
+}
+
+.footerContainer .grupo1 .box ul li .libro{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerContainer .grupo1 .box ul li .metodoPago{
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerContainer .grupo1 .box ul li .metodoPlin{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footerContainer .grupo1 .box ul li .metodoYape{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.redesSociales{
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.footerContainer .grupo2{
+    background-color: #000000;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}

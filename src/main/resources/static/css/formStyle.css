@@ -1,0 +1,83 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 6 oct 2022, 9:22:57
+    Author     : joaqu
+*/
+
+form{
+    width: 450px;
+    margin: auto;
+    background: rgb(210, 210, 210);
+    padding: 10px 20px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border-radius: 7px;
+}
+
+h2{
+    color: #445680;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.formContainer h4{
+    color: #445680;
+    margin-bottom: 15px;
+}
+
+.formContainer h2{
+    color: #445680;
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+input, textarea, select{
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 7px;
+    box-sizing: border-box;
+    font-size: 17px;
+    border: none;
+}
+
+textarea{
+    min-height: 100px;
+    max-height: 200px;
+    max-width: 100%;
+}
+
+#boton{
+    background: #31384A;
+    color: #fff;
+    padding: 20px;
+}
+
+#boton:hover{
+    cursor: pointer;
+}
+
+@media (max-width: 480px){
+    form{
+        width: 100%;
+    }
+}
+
+.formContainer{
+    margin: 0 auto
+}
+
+.formContainer tr td{
+    padding: 0px 50px 0px 50px;
+}
+
+.formContainer tr td img{
+    width: 700px;
+    margin: 0 auto;
+}
