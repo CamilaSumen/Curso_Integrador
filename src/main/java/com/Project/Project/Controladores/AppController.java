@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AppController {
 
-    @GetMapping("/")
+    @GetMapping("/administracion")
     public String verPaginaInicio(){
         return "administrativo.html";
     }
