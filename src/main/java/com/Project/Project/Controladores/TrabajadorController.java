@@ -34,7 +34,7 @@ public class TrabajadorController {
     @PostMapping("/trabajadores/guardar")
     public String guardarTrabajador(Trabajador trabajador) {
         trabajadorRepository.save(trabajador);
-        return "redirect:/";
+        return "redirect:/trabajadores";
     }
 
     @GetMapping("/trabajadores")

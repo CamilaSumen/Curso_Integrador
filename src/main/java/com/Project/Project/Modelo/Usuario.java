@@ -35,7 +35,19 @@ public class Usuario {
     @Getter @Setter @Column(name = "Pass")
     private String password;
 
+    @Getter @Setter @Column(name = "Tipo")
+    private String tipo;
+
+    public Usuario(Long id, String nombre, String email, String password, String tipo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+        this.password = password;
+        this.tipo = tipo;
+    }
+
     public List<Producto> getProductos() {
+
         return productos;
     }
 

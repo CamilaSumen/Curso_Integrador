@@ -9,4 +9,5 @@ public class AdmController {
     public String verPaginaInicio(){
         return "administrador/administrativo";
     }
+
 }
