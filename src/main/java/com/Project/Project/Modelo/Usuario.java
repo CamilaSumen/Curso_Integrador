@@ -7,12 +7,20 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tb_usuario")
 @ToString @EqualsAndHashCode
 public class Usuario {
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Producto> productos;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Orden> ordenes;
+    public Usuario(){
+    }
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Getter @Setter @Column(name = "ID_usuario")
@@ -26,5 +34,22 @@ public class Usuario {
 
     @Getter @Setter @Column(name = "Pass")
     private String password;
-    
+
+    public List<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
