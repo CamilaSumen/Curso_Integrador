@@ -1,4 +1,4 @@
-package com.Project.Project.Modelo.Repository;
+package com.Project.Project.Dao.Repository;
 
 import com.Project.Project.Modelo.Sede;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,7 +1,7 @@
 package com.Project.Project.Dao.Service;
 
 import com.Project.Project.Modelo.Producto;
-import com.Project.Project.Modelo.Repository.ProductoRepository;
+import com.Project.Project.Dao.Repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

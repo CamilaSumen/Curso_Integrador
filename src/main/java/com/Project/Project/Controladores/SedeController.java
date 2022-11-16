@@ -1,7 +1,7 @@
 package com.Project.Project.Controladores;
 
 import com.Project.Project.Modelo.Sede;
-import com.Project.Project.Modelo.Repository.SedeRepository;
+import com.Project.Project.Dao.Repository.SedeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
