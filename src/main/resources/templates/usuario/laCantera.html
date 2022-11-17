@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>La Cantera: Nosótros</title>
@@ -12,35 +12,10 @@
         <link rel="stylesheet" href="css/style.css"/>
     </head>
     <body>
-        <div class="container">
-            <nav class="navMain">
-                <a href="index.html"><img src="img/logo.jpg" alt="" class="navBrand"></a>
-                <ul class="navMenu">
-                    <li>
-                        <a href="nuestraCarta.html">Nuestra Carta</a>
-                    </li>
-                    <li>
-                        <a href="promociones.html">Promociones</a>
-                    </li>
-                    <li>
-                        <a href="restaurantes.html">Restaurantes</a>
-                    </li>
-                </ul>
-                <ul class="navMenu2">
-                    <li>
-                        <p>Elige tu experiencia:</p>
-                    </li>
-                    <li>
-                        <a href="reserva.html">Reserva Aquí</a>
-                    </li>
-                    <li>
-                        <a href="logIn.html">Ordena Aquí</a>
-                    </li>
-                </ul>
-            </nav>
-            
-            <hr>
-            
+    <div th:include="usuario/template_usuario.html::header">
+    </div>
+
+    <hr><br>
             <table style="padding: 20px 150px 0px 150px">
                 <tr>
                     <td style="background-color: #808B96; padding: 0 30px 0 30px">
@@ -74,69 +49,9 @@
             </table>
             
             <br><br><br><br>
-            
-            <footer class="footerContainer">
-                <div class="grupo1">
-                    <div class="box">
-                        <h2>LA CANTERA</h2><hr>
-                        <ul>
-                            <li><a href="#">Historia</a></li>
-                            <li><a href="#">Misión</a></li>
-                            <li><a href="#">Visión</a></li><br>
-                            <li><img src="img/libroReclamaciones.jpg" alt="alt" class="libro"/></li>
-                        </ul>
-                    </div>
-                    <div class="box">
-                        <h2>SERVICIOS</h2><hr>
-                        <ul>
-                            <li><a href="reserva.html">Reservas</a></li>
-                            <li><a href="logIn.html">Delivery</a></li>
-                        </ul>
-                    </div>
-                    <div class="box">
-                        <h2>MÉTODOS DE PAGO</h2><hr>
-                        <ul>
-                            <li class="1rafila"><img src="img/visaLogo.png" alt="alt" class="metodoPago"/></li><br>
-                            <li class="1rafila"><img src="img/masterLogo.png" alt="alt" class="metodoPago"/></li><br>
-                            <li class="2dafila"><img src="img/plinLogo.png" alt="alt" class="metodoPlin"/></li><br>
-                            <li class="2dafila"><img src="img/yapeLogo.png" alt="alt" class="metodoYape"/></li>
-                        </ul>
-                    </div>
-                    <div class="box">
-                        <h2>CONTÁCTANOS</h2><hr>
-                        <ul>
-                            <li><a href="escribenos.html">Escríbenos</a></li>
-                            <li><a href="reserva.html">Reserva</a></li><br>
-                            <li>Redes Sociales:</li>
-                            <li>
-                                <table>
-                                    <tr>
-                                        <th>
-                                            <a href="https://www.facebook.com/pollerialacantera/">
-                                                <img src="img/facebookLogo.png" alt="alt" class="redesSociales"/>
-                                            </a>
-                                            
-                                        </th>
-                                        <th>
-                                            <a href="https://instagram.com/lacanteraica?igshid=YmMyMTA2M2Y=">
-                                                <img src="img/instagramLogo.png" alt="alt" class="redesSociales"/>
-                                            </a>
-                                        </th>
-                                        <th>
-                                            <a href="https://www.tiktok.com/@lacanteraica?_t=8VqbhZDxXi2&_r=1">
-                                                <img src="img/tiktokLogo.png" alt="alt" class="redesSociales"/>
-                                            </a>
-                                        </th>
-                                    </tr>
-                                </table>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="grupo2">
-                    <small>© 2022 <b>La Cantera</b> - Todos los Derechos Reservados.</small>
-                </div>
-            </footer>
+
+         <div th:include="usuario/template_usuario.html::footer">
+         </div>
         </div>
     </body>
 </html>
