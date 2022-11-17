@@ -23,5 +23,5 @@ document.getElementById("formReservar")?.addEventListener("submit",function (ex)
     body: JSON.stringify(datosr)
   });
    alert("Reserva registrada");
-      window.location.href = 'reserva.html'
+      window.location.href = '/reservar'
 })

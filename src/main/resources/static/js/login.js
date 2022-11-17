@@ -26,7 +26,7 @@ document.getElementById('formInicioSesion').addEventListener("submit",function (
   }).then((response)=>{
     response.text().then((resultado)=>{
         if (resultado != 'FAIL') {
-            window.location.href = 'carrito2.html'
+            window.location.href = '/carrito'
           } else {
             alert("Las credenciales son incorrectas. Por favor intente nuevamente.");
           }
