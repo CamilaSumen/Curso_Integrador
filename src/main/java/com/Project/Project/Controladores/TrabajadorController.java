@@ -28,7 +28,7 @@ public class TrabajadorController {
         modelo.addAttribute("trabajador", new Trabajador());
         modelo.addAttribute("listaSedes", listaSedes);
 
-        return "addTrabajador";
+        return "administrador/addTrabajador";
     }
 
     @PostMapping("/trabajadores/guardar")
@@ -41,6 +41,6 @@ public class TrabajadorController {
     public String listarTrabajadores(Model modelo) {
         List<Trabajador> listaTrabajadores = trabajadorRepository.findAll();
         modelo.addAttribute("listaTrabajadores", listaTrabajadores);
-        return "trabajadores";
+        return "administrador/trabajadores";
     }
 }

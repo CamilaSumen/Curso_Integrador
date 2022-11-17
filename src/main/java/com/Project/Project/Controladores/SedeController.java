@@ -20,13 +20,13 @@ public class SedeController {
     public String listarSedes(Model modelo) {
         List<Sede> listaSedes = sedeRepository. findAll();
         modelo.addAttribute("listaSedes", listaSedes);
-        return "sedes";
+        return "administrador/sedes";
     }
 
     @GetMapping("/sedes/nuevo")
     public String mostrarFormularioNuevaSede(Model modelo){
         modelo.addAttribute("sede", new Sede());
-        return "addSede";
+        return "administrador/addSede";
     }
 
     @PostMapping("/sedes/guardar")
