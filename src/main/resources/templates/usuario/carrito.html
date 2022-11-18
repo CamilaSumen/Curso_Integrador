@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>La Cantera: Carta</title>
+    <title>La Cantera: Carrito</title>
     <link rel="icon" href="img/miniLogo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
@@ -12,36 +12,71 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
+
 <body>
+
+<!-- Page Content -->
 <div class="container">
     <div th:include="usuario/template_usuario.html::header">
     </div>
-
     <hr><br>
+    <!-- Page Heading/Breadcrumbs -->
 
-    <div class="row text-center">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/carta" style="color:black">Regresar a la carta</a></li>
+        <li class="breadcrumb-item active">Carrito</li>
+    </ol>
 
-        <div class="col-lg-3 col-md-6 mb-4" th:each="producto:${productos }">
-            <div class="card h-100">
-                <img class="card-img-top" th:src="@{/imgp/{img} (img=${producto.imagen})}" alt="">
-                <div class="card-body">
-                    <p class="card-text" style="color:black" th:text="${producto.nombre}"></p>
+    <!-- Blog Post -->
+    <div class="card mb-4" style="color:black">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-9">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Cantidad</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Acción</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td >Nombre</td>
+                            <td >Precio</td>
+                            <td >Cantidad</td>
+                            <td >Total</td>
+                            <td><a href="#" class="btn btn-danger">Quitar</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="card-footer">
-                    <a th:href="@{/verproducto/{id} (id=${producto.id})}" class="btn btn-success">Ver producto</a>
+
+                <div class="col-lg-3">
+                    <h2 class="card-title">SUBTOTAL</h2>
+
+                    <ul class="list-group">
+                        <li class="list-group-item"><h5>Total: $ 10</h5></li>
+                        <a href="resumenorden.html" class="btn btn-dark">Ver Orden</a>
+                    </ul>
                 </div>
+
             </div>
         </div>
 
     </div>
-
-    <br><br>
-
     <div th:include="usuario/template_usuario.html::footer">
     </div>
 </div>
-<script src="../vendor/jquery/jquery.min.js"></script>
-<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- /.container -->
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

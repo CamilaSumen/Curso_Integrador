@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.slf4j.Logger;
@@ -28,7 +29,7 @@ public class HomeController {
         return "usuario/index";
     }
 
-    @GetMapping("/carta")
+    @GetMapping("/vistacarta")
     public String carta1(){
         return "usuario/nuestraCarta";
     }
@@ -63,10 +64,10 @@ public class HomeController {
         return "usuario/escribenos";
     }
 
-    @GetMapping("/carrito")
+    @GetMapping("/carta")
     public String vercarta(Model model){
         model.addAttribute("productos", productoService.findAll());
-        return "usuario/carrito";
+        return "usuario/carta";
     }
     @GetMapping("/verproducto/{id}")
     public String verproducto(@PathVariable Integer id, Model model){
@@ -76,6 +77,11 @@ public class HomeController {
         producto = productoOptional.get();
         model.addAttribute("producto", producto);
         return "usuario/verproducto";
+    }
+
+    @PostMapping("/cart")
+    public String addCart(){
+        return "usuario/carrito";
     }
 
 }
