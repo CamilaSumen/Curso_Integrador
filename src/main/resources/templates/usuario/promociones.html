@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>La Cantera: Promociones</title>
@@ -14,31 +14,8 @@
     </head>
     <body>
         <div class="container">
-            <nav class="navMain">
-                <a href="index.html"><img src="img/logo.jpg" alt="" class="navBrand"></a>
-                <ul class="navMenu">
-                    <li>
-                        <a href="nuestraCarta.html">Nuestra Carta</a>
-                    </li>
-                    <li>
-                        <a href="promociones.html">Promociones</a>
-                    </li>
-                    <li>
-                        <a href="restaurantes.html">Restaurantes</a>
-                    </li>
-                </ul>
-                <ul class="navMenu2">
-                    <li>
-                        <p>Elige tu experiencia:</p>
-                    </li>
-                    <li>
-                        <a href="reserva.html">Reserva Aquí</a>
-                    </li>
-                    <li>
-                        <a href="logIn.html">Ordena Aquí</a>
-                    </li>
-                </ul>
-            </nav>
+                <div th:include="usuario/template_usuario.html::header">
+                </div>
             
             <hr><br>
             
