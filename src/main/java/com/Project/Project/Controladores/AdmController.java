@@ -14,12 +14,12 @@ public class AdmController {
 
     @Autowired
     private ProductoService productoService;
-    @GetMapping("/administracion")
+    @GetMapping("admin/administrativo")
     public String verPaginaInicio(){
         return "administrador/administrativo";
     }
 
-    @GetMapping("/administracion/carta")
+    @GetMapping("/administrativo/carta")
     public String verCarta(Model model){
         List<Producto> productos = productoService.findAll();
         model.addAttribute("productos", productos);

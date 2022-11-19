@@ -23,7 +23,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/administracion">Inicio</a>
+            <a class="nav-link" href="/administrativo">Inicio</a>
           </li>
         </ul>
       </div>
@@ -39,12 +39,18 @@
         <tr>
           <th>ID</th>
           <th>Nombre</th>
+          <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="sede : ${listaSedes}">
           <td th:text="${sede.id}"></td>
           <td th:text="${sede.nombre}"></td>
+          <td>
+            <a th:href="@{'/admin/sedes/editar'+'/'+ ${sede.id}}" class="btn btn-info">Editar</a>
+            &nbsp;&nbsp;
+            <a th:href="@{'/admin/sedes/eliminar'+'/'+ ${sede.id}}" class="btn btn-danger">Eliminar</a>
+          </td>
         </tr>
         </tbody>
       </table>
