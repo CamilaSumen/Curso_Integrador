@@ -1,9 +1,11 @@
 package com.Project.Project.Controladores;
 
+import com.Project.Project.Dao.Service.IUsuarioService;
 import com.Project.Project.Dao.Service.ProductoService;
 import com.Project.Project.Modelo.DetalleOrden;
 import com.Project.Project.Modelo.Orden;
 import com.Project.Project.Modelo.Producto;
+import com.Project.Project.Modelo.Usuario;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,9 @@ public class HomeController {
 
     @Autowired
     private ProductoService productoService;
+
+    @Autowired
+    private IUsuarioService usuarioService;
 
     //Para almacenar los detalles de la orden
     List<DetalleOrden> detalles = new ArrayList<DetalleOrden>();
@@ -146,6 +151,17 @@ public class HomeController {
         model.addAttribute("cart", detalles);
         model.addAttribute("orden", orden);
         return "usuario/carrito";
+    }
+
+    @GetMapping("/order")
+    public String Order(Model model){
+
+        Usuario usuario = usuarioService.findById(1).get();
+
+        model.addAttribute("cart", detalles);
+        model.addAttribute("orden", orden);
+        model.addAttribute("usuario", usuario);
+        return "usuario/resumenorden";
     }
 
 }

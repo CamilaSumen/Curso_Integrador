@@ -7,7 +7,7 @@ document.getElementById("formRegistroUsuario")?.addEventListener("submit",functi
     datos.nombre = document.getElementById('txtNombre').value;
     datos.email = document.getElementById('txtEmail').value;
     datos.password = document.getElementById('txtPassword').value;
-
+    datos.direccion = document.getElementById('txtDireccion').value;
 
     var response = grecaptcha.getResponse();
     if(response.length == 0){
@@ -23,7 +23,7 @@ document.getElementById("formRegistroUsuario")?.addEventListener("submit",functi
     body: JSON.stringify(datos)
   });
       alert("La cuenta fue creada con éxito!");
-      window.location.href = 'logIn.html'
+      window.location.href = '/login'
 })
 
 

@@ -1,4 +1,4 @@
-package com.Project.Project.Controladores;
+/*package com.Project.Project.Controladores;
 
 import com.Project.Project.Dao.UsuarioDao;
 import com.Project.Project.Modelo.Usuario;
@@ -27,3 +27,4 @@ public class AuthControlador {
         return "FAIL";
     }
 }
+*/

@@ -24,7 +24,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Getter @Setter @Column(name = "ID_usuario")
-    private Long id;
+    private Integer id;
 
     @Getter @Setter @Column(name = "Nombre")
     private String nombre;
@@ -32,17 +32,21 @@ public class Usuario {
     @Getter @Setter @Column(name = "Email")
     private String email;
 
+    @Getter @Setter @Column(name = "Direccion")
+    private String direccion;
+
     @Getter @Setter @Column(name = "Pass")
     private String password;
 
     @Getter @Setter @Column(name = "Tipo")
     private String tipo;
 
-    public Usuario(Long id, String nombre, String email, String password, String tipo) {
+    public Usuario(Integer id, String nombre, String email, String password, String direccion, String tipo) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.password = password;
+        this.direccion = direccion;
         this.tipo = tipo;
     }
 

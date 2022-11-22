@@ -1,4 +1,4 @@
-package com.Project.Project.Dao;
+/*package com.Project.Project.Dao;
 
 import com.Project.Project.Modelo.Usuario;
 
@@ -14,4 +14,4 @@ import java.util.List;
 
     boolean obtenerUsuarioPorCredenciales(Usuario usuario);
 
-    }
+    }*/
