@@ -55,15 +55,6 @@ public class HomeController {
         return "usuario/restaurantes";
     }
 
-    @GetMapping("/login")
-    public String iniciar(){
-        return "usuario/logIn";
-    }
-
-    @GetMapping("/registrar")
-    public String registro(){
-        return "usuario/register";
-    }
 
     @GetMapping("/reservar")
     public String reservar(){

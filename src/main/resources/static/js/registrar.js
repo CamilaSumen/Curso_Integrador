@@ -1,6 +1,6 @@
 
 
-
+/*
 document.getElementById("formRegistroUsuario")?.addEventListener("submit",function (e){
     e.preventDefault();
     let datos = {};

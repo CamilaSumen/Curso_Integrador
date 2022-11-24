@@ -1,7 +1,7 @@
 package com.Project.Project.Dao.Service;
 
 import com.Project.Project.Modelo.Producto;
-import com.Project.Project.Dao.Repository.ProductoRepository;
+import com.Project.Project.Dao.Repository.IProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ProductoServiceImpl implements ProductoService{
 
     @Autowired
-    private ProductoRepository productoRepository;
+    private IProductoRepository productoRepository;
 
     @Override
     public Producto save(Producto producto) {

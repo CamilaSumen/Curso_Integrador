@@ -24,15 +24,15 @@
         <tr>
             <td><img src="img/fotoRegister.jpg"></td>
             <td>
-                <form id="formRegistroUsuario">
+                <form th:action="@{/save}" method="post">
                     <h2>Registrate aquí</h2><br>
                     <h4>Por favor, ingrese la siguiente información</h4>
-                    <input type="text" name="Nombres"  id="txtNombre" placeholder="Nombres" required>
+                    <input type="text" name="nombre"  id="txtNombre" placeholder="Nombres" required>
                     <input type="text" name="Apellidos" id="txtApellido" placeholder="Apellidos" required>
-                    <input type="text" name="Correo" id="txtEmail" placeholder="Correo" required>
-                    <input type="text" name="Dirección" id="txtDireccion" placeholder="Dirección" required>
-                    <input type="password" name="contraseña" id="txtPassword" placeholder="Contraseña" required>
-                    <div class="g-recaptcha" data-sitekey="6Lc4AbEiAAAAAAPPmBSMbv3MKUwhORI3n8MNYMjj"></div>
+                    <input type="text" name="email" id="txtEmail" placeholder="Correo" required>
+                    <input type="text" name="direccion" id="txtDireccion" placeholder="Dirección" required>
+                    <input type="password" name="password" id="txtPassword" placeholder="Contraseña" required>
+                    <div class="g-recaptcha" data-sitekey="6Lc4AbEiAAAAAAPPmBSMbv3MKUwhORI3n8MNYMjj" aria-required="true"></div>
                     <br>
                     <input type="submit" href="#" value="Registrarme" id="boton">
                     <a href="/login" style="color: #445680">¿Ya tienes cuenta? <b>Iniciar sesión</b></a>

@@ -1,45 +1,62 @@
-/*package com.Project.Project.Controladores;
+package com.Project.Project.Controladores;
 
-import com.Project.Project.Dao.UsuarioDao;
+import com.Project.Project.Dao.Service.IUsuarioService;
 import com.Project.Project.Modelo.Usuario;
-import com.Project.Project.util.JWTutil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
-@RestController
+@Controller
 public class UsuarioControlador {
 
-    @Autowired
-    private UsuarioDao usuarioDao;
-
+    private final Logger logger = LoggerFactory.getLogger(UsuarioControlador.class);
 
     @Autowired
-    private JWTutil jwtUtil;
-    @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
-    public List<Usuario> getUsuarios(){
+    private IUsuarioService usuarioService;
 
-        return usuarioDao.getUsuarios();
+
+    @GetMapping("/registrar")
+    public String create(){
+        return "usuario/register";
     }
 
-
-    @RequestMapping(value = "api/usuarios", method = RequestMethod.POST)
-    public void registrarUsuario(@RequestBody Usuario usuario){
-        usuarioDao.registrar(usuario);
+    @PostMapping("/save")
+    public String save(Usuario usuario){
+        logger.info("Usuario registro: {}", usuario);
+        usuario.setTipo("USER");
+        usuarioService.save(usuario);
+        return "redirect:/login";
     }
 
-
-
-    private boolean validarToken(String token) {
-        String usuarioId = jwtUtil.getKey(token);
-        return usuarioId != null;
+    @GetMapping("/login")
+    public String login(){
+        return "usuario/logIn";
     }
+    @PostMapping("/acceder")
+    public String acceder(Usuario usuario, HttpSession session){
+        logger.info("Accesos: {}", usuario);
 
+        Optional<Usuario> user = usuarioService.findByEmail(usuario.getEmail());
+        logger.info("Usuario de db: {}", user.get());
+
+        if(user.isPresent()){
+            session.setAttribute("idusuario", user.get().getId());
+            if(user.get().getTipo().equals("ADMIN")){
+                return "redirect:/admin/administrativo";
+            } else {
+                return "redirect:/carta";
+            }
+            } else{
+            logger.info("Usuario no existe");
+        }
+        return "redirect:/carta";
+    }
 
 
 }
-*/

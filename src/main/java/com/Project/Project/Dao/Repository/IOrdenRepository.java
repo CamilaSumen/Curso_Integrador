@@ -1,9 +1,9 @@
 package com.Project.Project.Dao.Repository;
 
-import com.Project.Project.Modelo.Producto;
+import com.Project.Project.Modelo.Orden;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductoRepository extends JpaRepository<Producto,Integer> {
+public interface IOrdenRepository extends JpaRepository<Orden, Integer> {
 }

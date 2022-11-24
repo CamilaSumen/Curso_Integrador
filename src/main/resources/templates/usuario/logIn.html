@@ -23,10 +23,10 @@
                 <tr>
                     <td><img src="img/fotoLogIn.jpg"></td>
                     <td>
-                        <form id="formInicioSesion">
+                        <form th:action="@{/acceder}" method="post">
                             <h2>Ingresa a La Cantera</h2><h2> y </h2><h2>disfruta nuestro sabor</h2><br>
-                            <input type="email" name="txtCorreo" id="txtCorreo" placeholder="Correo">
-                            <input type="password" name="txtPassword" id="txtPassword" placeholder="Contraseña">
+                            <input type="email" name="email" id="txtCorreo" placeholder="Correo">
+                            <input type="password" name="password" id="txtPassword" placeholder="Contraseña">
                             <button type="submit" href="#" id="boton">Iniciar sesión</button>
                             </br>
                             <a href="/registrar" style="color: #445680">¿No tienes cuenta? <b>Regístrate aquí</b></a>
