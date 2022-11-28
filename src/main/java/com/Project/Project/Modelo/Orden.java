@@ -46,8 +46,8 @@ public class Orden {
         this.numero = numero;
     }
 
-    public Date getFechaCreacion() {
-        return fechaCreacion;
+    public Date getFechaCreacion(Date fechaCreacion) {
+        return this.fechaCreacion;
     }
 
     public void setFechaCreacion(Date fechaCreacion) {
@@ -95,5 +95,8 @@ public class Orden {
                 ", fechaRecibida=" + fechaRecibida +
                 ", total=" + total +
                 '}';
+    }
+
+    public void setFechaCreacion(java.util.Date fechaCreacion) {
     }
 }
