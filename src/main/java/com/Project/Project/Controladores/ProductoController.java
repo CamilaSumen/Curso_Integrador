@@ -1,5 +1,6 @@
 package com.Project.Project.Controladores;
 
+import com.Project.Project.Dao.Service.IUsuarioService;
 import com.Project.Project.Dao.Service.ProductoService;
 import com.Project.Project.Dao.Service.UploadFileService;
 import com.Project.Project.Modelo.Producto;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -26,6 +28,9 @@ public class ProductoController {
     private ProductoService productoService;
 
     @Autowired
+    private IUsuarioService usuarioService;
+
+    @Autowired
     private UploadFileService upload;
 
     @GetMapping("productos")
@@ -33,14 +38,17 @@ public class ProductoController {
         model.addAttribute("productos", productoService.findAll());
         return "productos/productos";
     }
+
     @GetMapping("productos/create")
     public String create(){
         return "productos/create";
     }
+
     @PostMapping("/productos/save")
-    public String save(Producto producto, @RequestParam("img") MultipartFile file) throws IOException {
+    public String save(Producto producto, @RequestParam("img") MultipartFile file, HttpSession session) throws IOException {
         LOGGER.info("Este es el objeto producto {}",producto);
-        Usuario u = new Usuario(1,"", "", "","", "");
+
+        Usuario u = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
         producto.setUsuario(u);
         //imagen
         if(producto.getId()==null){//cuando se crea un producto
@@ -51,6 +59,7 @@ public class ProductoController {
         productoService.save(producto);
         return "redirect:/productos";
     }
+
     @GetMapping("/productos/edit/{id}")
     public String edit(@PathVariable Integer id, Model model){
         Producto producto = new Producto();

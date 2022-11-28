@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -82,7 +83,8 @@ public class HomeController {
     }
 
     @GetMapping("/carta")
-    public String vercarta(Model model){
+    public String vercarta(Model model, HttpSession session){
+        log.info("Sesión del usuario: {}", session.getAttribute("idusuario"));
         model.addAttribute("productos", productoService.findAll());
         return "usuario/carta";
     }
@@ -155,9 +157,9 @@ public class HomeController {
     }
 
     @GetMapping("/order")
-    public String Order(Model model){
+    public String Order(Model model, HttpSession session){
 
-        Usuario usuario = usuarioService.findById(1).get();
+        Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
 
         model.addAttribute("cart", detalles);
         model.addAttribute("orden", orden);
@@ -167,14 +169,14 @@ public class HomeController {
 
     //guardar la orden
     @GetMapping("/saveOrder")
-    public String saveOrder(){
+    public String saveOrder(HttpSession session){
 
         Date fechaCreacion = new Date();
         orden.setFechaCreacion(fechaCreacion);
         orden.setNumero(ordenService.generarNumeroOrden());
 
         //usuario
-        Usuario usuario = usuarioService.findById(1).get();
+        Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
         orden.setUsuario(usuario);
         ordenService.save(orden);
 

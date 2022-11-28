@@ -45,6 +45,8 @@ public class UsuarioControlador {
         Optional<Usuario> user = usuarioService.findByEmail(usuario.getEmail());
         logger.info("Usuario de db: {}", user.get());
 
+        //Login de administrador y usuario
+
         if(user.isPresent()){
             session.setAttribute("idusuario", user.get().getId());
             if(user.get().getTipo().equals("ADMIN")){
