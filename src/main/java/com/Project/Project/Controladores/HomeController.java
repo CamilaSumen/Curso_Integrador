@@ -86,6 +86,7 @@ public class HomeController {
     public String vercarta(Model model, HttpSession session){
         log.info("Sesión del usuario: {}", session.getAttribute("idusuario"));
         model.addAttribute("productos", productoService.findAll());
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
         return "usuario/carta";
     }
     @GetMapping("/verproducto/{id}")

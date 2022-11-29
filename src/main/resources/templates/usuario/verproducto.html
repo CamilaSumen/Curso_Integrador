@@ -21,7 +21,7 @@
         <a href="index.html"><img src="img/logo.jpg" alt="" class="navBrand"></a>
         <ul class="navMenu">
           <li>
-            <a href="nuestraCarta.html">Nuestra Carta</a>
+            <a th:href="@{/getCart}">Nuestra Carta</a>
           </li>
           <li>
             <a href="promociones.html">Promociones</a>
@@ -68,7 +68,7 @@
                 <h2 class="card-title" style="color:white" th:text="${producto.nombre}"></h2>
 
                 <ul class="list-group">
-                  <li class="list-group-item" style="color:black" th:text=" 'Precio: S/.'+${producto.precio}"><h5></h5></li>
+                  <li class="list-group-item" c th:text=" 'Precio: S/.'+${producto.precio}"><h5></h5></li>
                   <li class="list-group-item">
                     <p style="color:black" th:text="'Descripción: '+${producto.descripcion}"></p>
                   </li>

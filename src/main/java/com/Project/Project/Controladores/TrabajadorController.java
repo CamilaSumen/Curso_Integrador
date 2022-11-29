@@ -1,9 +1,10 @@
 package com.Project.Project.Controladores;
 
-import com.Project.Project.Modelo.Sede;
 import com.Project.Project.Dao.Repository.SedeRepository;
-import com.Project.Project.Modelo.Trabajador;
 import com.Project.Project.Dao.Repository.TrabajadorRepository;
+import com.Project.Project.Dao.Service.TrabajadorService;
+import com.Project.Project.Modelo.Sede;
+import com.Project.Project.Modelo.Trabajador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,9 @@ import java.util.List;
 
 @Controller
 public class TrabajadorController {
+
+    @Autowired
+    private TrabajadorService trabajadorService;
 
     @Autowired
     private TrabajadorRepository trabajadorRepository;
@@ -46,14 +50,21 @@ public class TrabajadorController {
     }
 
     @GetMapping("/admin/trabajadores/editar/{id}")
-    public String mostrarFormularioModificarTrabajador(@PathVariable("id") Integer id, Model modelo) {
+    public String edit(@PathVariable Integer id, Model model){
         Trabajador trabajador = trabajadorRepository.findById(id).get();
-        modelo.addAttribute("trabajador", trabajador);
-
+        model.addAttribute("trabajador", trabajador);
         List<Sede> listaSedes = sedeRepository.findAll();
-        modelo.addAttribute("listaSedes", listaSedes);
+        model.addAttribute("listaSedes", listaSedes);
+        return "administrador/editTrabajador";
+    }
 
-        return "administrador/addTrabajador";
+    @PostMapping("/admin/trabajadores/update")
+    public String update(Trabajador trabajador) {
+        Trabajador t = new Trabajador();
+        t = trabajadorService.get(trabajador.getId()).get();
+
+        trabajadorService.update(trabajador);
+        return "redirect:/admin/trabajadores";
     }
 
     @GetMapping("/admin/trabajadores/eliminar/{id}")

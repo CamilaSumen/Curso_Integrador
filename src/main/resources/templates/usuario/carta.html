@@ -18,7 +18,7 @@
         <a href="/"><img src="img/logo.jpg" alt="" class="navBrand"></a>
         <ul class="navMenu">
             <li>
-                <a href="/vistacarta">Nuestra Carta</a>
+                <a href="/carta">Nuestra Carta</a>
             </li>
             <li>
                 <a href="/promociones">Promociones</a>
@@ -33,10 +33,10 @@
                 <a th:href="@{/getCart}">Carrito</a>
             </li>
             <li>
-                <a href="/reservar">Reserva Aquí</a>
+                <a th:href="@{/compras}">Compras</a>
             </li>
             <li>
-                <a href="/login">Ordena Aquí</a>
+                <a th:href="@{/cerrar}">Cerrar Sesión</a>
             </li>
         </ul>
     </nav>
@@ -71,8 +71,7 @@
 
     <br><br>
 
-    <div th:include="usuario/template_usuario.html::footer">
-    </div>
+
 </div>
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
