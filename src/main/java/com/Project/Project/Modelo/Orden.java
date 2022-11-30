@@ -1,7 +1,9 @@
 package com.Project.Project.Modelo;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+import java.util.List;
+
 @Entity
 @Table(name = "ordenes")
 public class Orden {
@@ -16,8 +18,8 @@ public class Orden {
     @ManyToOne
     private Usuario usuario;
 
-    @OneToOne(mappedBy = "orden")
-    private DetalleOrden detalle;
+    @OneToMany(mappedBy = "orden")
+    private List<DetalleOrden> detalle;
 
     public Orden() {
     }
@@ -46,8 +48,8 @@ public class Orden {
         this.numero = numero;
     }
 
-    public Date getFechaCreacion(Date fechaCreacion) {
-        return this.fechaCreacion;
+    public Date getFechaCreacion() {
+        return fechaCreacion;
     }
 
     public void setFechaCreacion(Date fechaCreacion) {
@@ -78,11 +80,11 @@ public class Orden {
         this.usuario = usuario;
     }
 
-    public DetalleOrden getDetalle() {
+    public List<DetalleOrden> getDetalle() {
         return detalle;
     }
 
-    public void setDetalle(DetalleOrden detalle) {
+    public void setDetalle(List<DetalleOrden> detalle) {
         this.detalle = detalle;
     }
 
@@ -97,6 +99,5 @@ public class Orden {
                 '}';
     }
 
-    public void setFechaCreacion(java.util.Date fechaCreacion) {
-    }
+
 }

@@ -2,6 +2,7 @@ package com.Project.Project.Dao.Service;
 
 import com.Project.Project.Dao.Repository.IOrdenRepository;
 import com.Project.Project.Modelo.Orden;
+import com.Project.Project.Modelo.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,5 +47,10 @@ public class OrdenServiceImpl implements IOrdenService {
             numeroConcatenado = "00000"+String.valueOf(numero);
         }
         return numeroConcatenado;
+    }
+
+    @Override
+    public List<Orden> findByUsuario(Usuario usuario) {
+        return ordenRepository.findByUsuario(usuario);
     }
 }

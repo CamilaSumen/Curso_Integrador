@@ -1,6 +1,8 @@
 package com.Project.Project.Controladores;
 
+import com.Project.Project.Dao.Service.IOrdenService;
 import com.Project.Project.Dao.Service.IUsuarioService;
+import com.Project.Project.Modelo.Orden;
 import com.Project.Project.Modelo.Usuario;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -20,6 +23,9 @@ public class UsuarioControlador {
 
     @Autowired
     private IUsuarioService usuarioService;
+
+    @Autowired
+    private IOrdenService ordenService;
 
 
     @GetMapping("/registrar")
@@ -64,6 +70,9 @@ public class UsuarioControlador {
     @GetMapping("/compras")
     public String obtenerCompras(HttpSession session, Model model){
         model.addAttribute("sesion", session.getAttribute("idusuario"));
+        Usuario usuario = usuarioService.findById(Integer.parseInt(session.getAttribute("idusuario").toString())).get();
+        List<Orden> ordenes = ordenService.findByUsuario(usuario);
+        model.addAttribute("ordenes", ordenes);
         return "usuario/compras";
     }
 
