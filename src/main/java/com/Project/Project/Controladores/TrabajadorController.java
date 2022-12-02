@@ -2,9 +2,12 @@ package com.Project.Project.Controladores;
 
 import com.Project.Project.Dao.Repository.SedeRepository;
 import com.Project.Project.Dao.Repository.TrabajadorRepository;
+import com.Project.Project.Dao.Service.SedeService;
 import com.Project.Project.Dao.Service.TrabajadorService;
 import com.Project.Project.Modelo.Sede;
 import com.Project.Project.Modelo.Trabajador;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,6 +20,8 @@ import java.util.List;
 @Controller
 public class TrabajadorController {
 
+    private final Logger log = LoggerFactory.getLogger(TrabajadorController.class);
+
     @Autowired
     private TrabajadorService trabajadorService;
 
@@ -25,6 +30,9 @@ public class TrabajadorController {
 
     @Autowired
     private SedeRepository sedeRepository;
+
+    @Autowired
+    private SedeService sedeService;
 
     @GetMapping("/admin/trabajadores/nuevo")
     public String mostrarFormularioNuevoTrabajador(Model modelo){
@@ -72,5 +80,6 @@ public class TrabajadorController {
         trabajadorRepository.deleteById(id);
         return "redirect:/admin/trabajadores";
     }
+
 }
 

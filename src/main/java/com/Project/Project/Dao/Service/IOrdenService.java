@@ -4,6 +4,7 @@ import com.Project.Project.Modelo.Orden;
 import com.Project.Project.Modelo.Usuario;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IOrdenService {
 
@@ -11,4 +12,6 @@ public interface IOrdenService {
     Orden save (Orden orden);
     String generarNumeroOrden();
     List<Orden> findByUsuario (Usuario usuario);
+    Optional<Orden> findById(Integer id);
+
 }

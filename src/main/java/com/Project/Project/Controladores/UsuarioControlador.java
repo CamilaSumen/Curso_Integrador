@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
@@ -76,10 +77,23 @@ public class UsuarioControlador {
         return "usuario/compras";
     }
 
+    @GetMapping("/detalle/{id}")
+    //Path para mapear el parámetro
+    public String detalleCompra(@PathVariable Integer id, HttpSession session, Model model){
+        logger.info("Id de la orden: {}", id);
+        //detalles de la orden
+        Optional<Orden> orden = ordenService.findById(id);
+        model.addAttribute("detalles", orden.get().getDetalle());
+        //session
+        model.addAttribute("sesion", session.getAttribute("idusuario"));
+        return "usuario/detallecompra";
+    }
+
     @GetMapping("/cerrar")
     public String cerrarSesion(HttpSession session){
         session.removeAttribute("idusuario");
         return "redirect:/login";
     }
+
 
 }

@@ -1,5 +1,6 @@
 package com.Project.Project.Controladores;
 
+import com.Project.Project.Dao.Service.IOrdenService;
 import com.Project.Project.Dao.Service.ProductoService;
 import com.Project.Project.Modelo.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,10 @@ public class AdmController {
 
     @Autowired
     private ProductoService productoService;
+
+    @Autowired
+    private IOrdenService ordenService;
+
     @GetMapping("admin/administrativo")
     public String verPaginaInicio(){
         return "administrador/administrativo";
@@ -24,5 +29,11 @@ public class AdmController {
         List<Producto> productos = productoService.findAll();
         model.addAttribute("productos", productos);
         return "productos/carritoprueba";
+    }
+
+    @GetMapping("/administrativo/ordenes")
+    public String ordenes(Model model){
+        model.addAttribute("ordenes", ordenService.findAll());
+        return "administrador/ordenes";
     }
 }
