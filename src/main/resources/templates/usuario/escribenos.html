@@ -1,39 +1,143 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>La Cantera: Escríbenos</title>
-        <link rel="icon" href="img/miniLogo.png">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="css/formStyle.css"/>
-    </head>
-    <body>
-        <div class="container">
-            <div th:include="usuario/template_usuario.html::header">
-            </div>
-            
-            <hr><br>
-            
-            <form action="https://formsubmit.co/lacanterapolleria@gmail.com"  method="post">
-                <h2>Escríbenos</h2>
-                <input type="text" name="NOMBRE" placeholder="Nombre" id="txtNombre" required>
-                <input type="text" name="CORREO" placeholder="Correo" id="txtCorreo" required>
-                <input type="text" name="TELEFONO" placeholder="Telefono" id="txtTelefono" required>
-                <textarea name="MENSAJE" placeholder="Escriba aquí su mensaje" id="txtMensaje" required></textarea>
-                <input type="submit" value="ENVIAR" id="boton">
-            </form>
-            
-            <br><br>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>La Cantera: Escríbenos</title>
+    <link rel="icon" href="img/miniLogo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/formStyle.css"/>
+</head>
+<body>
+<div class="container">
+    <div th:include="usuario/template_usuario.html::header">
+    </div>
 
-            <div th:include="usuario/template_usuario.html::footer">
-            </div>
+    <hr>
+    <br>
+
+    <form th:action="@{/contact}" method="post" enctype="multipart/form-data" style="padding-bottom: 234px;">
+        <br> <h2>Coméntanos tu experiencia</h2><br>
+        <div role="main" class="form-all">
+            <ul class="form-section page-section">
+                <li class="form-line jf-required h2" data-type="control_fullname" id="id_8">
+
+                    <div id="cid_8" class="form-input jf-required">
+                        <div data-wrapper-react="true">
+                  <span class="form-sub-label-container" style="vertical-align:top" data-input-type="first">
+                    <input type="text" id="first_8" name="fullname" class="form-textbox validate[required]"
+                           data-defaultvalue="" autoComplete="section-input_8 given-name" size="10" value=""
+                           data-component="first" aria-labelledby="label_8 sublabel_8_first" required placeholder="Nombre"/>
+                    <label class="form-sub-label" for="first_8" id="sublabel_8_first" style="min-height:13px"
+                           aria-hidden="false" ></label>
+                  </span>
+
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_phone" id="id_9">
+
+                    <div id="cid_9" class="form-input">
+                        <div data-wrapper-react="true">
+
+                  <span class="form-sub-label-container" style="vertical-align:top" data-input-type="phone">
+                    <input type="tel" id="input_9_phone" name="q9_telefono[phone]" class="form-textbox"
+                           data-defaultvalue="" autoComplete="section-input_9 tel-local" value="" data-component="phone"
+                           aria-labelledby="label_9 sublabel_9_phone" required placeholder="Telefono"/>
+                    <label class="form-sub-label" for="input_9_phone" id="sublabel_9_phone" style="min-height:13px"
+                           aria-hidden="false"></label>
+                  </span>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="form-line jf-required" data-type="control_email" id="id_6">
+
+                    <div id="cid_6" class="form-input jf-required">
+                        <input type="email" id="input_6" name="email" class="form-textbox validate[required, Email]"
+                               data-defaultvalue="" size="30" value="" data-component="email" aria-labelledby="label_6" required placeholder="Email">
+                    </div>
+                </li>
+
+                <li class="form-line jf-required" data-type="control_subject" id="id_7">
+
+                    <div id="cid_6" class="form-input jf-required">
+                        <input type="subject" id="input_7" name="subject" class="form-textbox" data-defaultvalue=""
+                               size="30"
+                               value="" data-component="email" aria-labelledby="label_7" required placeholder="Asunto"/>
+                    </div>
+                </li>
+
+                <li class="form-line jf-required" data-type="control_textarea" id="id_4">
+
+                    <div id="cid_4" class="form-input jf-required">
+                <textarea id="input_4" class="form-textarea validate[required]" name="content" cols="40" rows="6"
+                          data-component="textarea" required aria-labelledby="label_4" placeholder="Escriba aquí su mensaje"></textarea>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_fileupload" id="id_10">
+                    <label class="form-label form-label-left form-label-auto" id="label_10" for="input_10" style="color:black"> Adjuntar
+                        archivo
+                    </label>
+                    <div id="cid_10" class="form-input" style="color:black">
+                        <div data-wrapper-react="true">
+                            <div data-wrapper-react="true">
+                                <div class="qq-uploader-buttonText-value">
+                                </div>
+                                <input type="file" style="font-size: 14px;" id="input_10" name="attachment" multiple=""
+                                       class="form-upload-multiple" data-imagevalidate="yes"
+                                       data-file-accept="pdf, doc, docx, xls, xlsx, csv, txt, rtf, html, zip, mp3, wma, mpg, flv, avi, jpg, jpeg, png, gif"
+                                       data-file-maxsize="10854" data-file-minsize="0" data-file-limit=""
+                                       data-component="fileupload"/>
+                            </div>
+                            <span style="display:none" class="cancelText">
+                    Cancelar
+                  </span>
+                            <span style="display:none" class="ofText">
+                    of
+                  </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="form-line" data-type="control_button" id="id_14">
+                    <div id="cid_14" class="form-input-wide">
+                        <div  data-align="auto"
+                             class="form-buttons-wrapper form-buttons-auto   jsTest-button-wrapperField">
+
+                            <input type="submit" value="Enviar"
+                                   id="input_14"
+                                   data-component="button"
+                                   data-content="">
+
+                        </div>
+                    </div>
+                </li>
+                <li style="display:none">
+                    Should be Empty:
+                    <input type="text" name="website" value=""/>
+                </li>
+            </ul>
         </div>
-        <script src="js/contacto.js"></script>
-    </body>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+          JotForm.showJotFormPowered = "new_footer";
+
+        </script>
+
+        <input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="222637391271658"/>
+
+        <div class="formFooter-heightMask">
+        </div>
+
+        <div class="clear"></div>
+    </form>
+
+    <div th:include="usuario/template_usuario.html::footer">
+    </div>
+</div>
+<script src="js/contacto.js"></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </html>
