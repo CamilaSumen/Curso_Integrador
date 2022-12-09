@@ -46,6 +46,7 @@ public class UsuarioControlador {
     public String login(){
         return "usuario/logIn";
     }
+
     @PostMapping("/acceder")
     public String acceder(Usuario usuario, HttpSession session){
         logger.info("Accesos: {}", usuario);

@@ -24,7 +24,7 @@ public class Producto {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.imagen=imagen;
+        this.imagen = imagen;
         this.precio = precio;
         this.cantidad = cantidad;
         this.usuario = usuario;

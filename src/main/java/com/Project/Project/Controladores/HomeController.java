@@ -81,6 +81,30 @@ public class HomeController {
         return "usuario/laCantera";
     }
 
+    @GetMapping("/pollo")
+    public String pollo(){
+        return "usuario/pollo";
+    }
+
+    @GetMapping("/guarniciones")
+    public String guatniciones(){
+        return "usuario/guarniciones";
+    }
+
+    @GetMapping("/chicharrones")
+    public String chicharrones(){
+        return "usuario/chicharrones";
+    }
+
+    @GetMapping("/ensaladas")
+    public String ensaladas(){
+        return "usuario/ensaladas";
+    }
+
+    @GetMapping("/bebidas")
+    public String bebidas(){
+        return "usuario/bebidas";
+    }
     @GetMapping("/carta")
     public String vercarta(Model model, HttpSession session){
         log.info("Sesión del usuario: {}", session.getAttribute("idusuario"));

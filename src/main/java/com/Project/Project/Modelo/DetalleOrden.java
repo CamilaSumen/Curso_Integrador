@@ -24,7 +24,7 @@ public class DetalleOrden {
 
     public DetalleOrden(Integer id, String nombre, double cantidad, double precio, double total) {
         this.id = id;
-        this.nombre = nombre;
+       this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
         this.total = total;
